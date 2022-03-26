@@ -1,0 +1,24 @@
+{
+  "name": "captains-log",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashoknayakii/captains-log.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashoknayakii/captains-log/issues"
+  },
+  "homepage": "https://github.com/ashoknayakii/captains-log#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
