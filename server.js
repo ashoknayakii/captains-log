@@ -1,9 +1,11 @@
+const noteLogs = require('./db/db.json');
+
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
-const app = express();
 
-const Notes = require('./db/db.json');
+const PORT = process.env.PORT || 3001;
+const app = express();
 
 app.use(express.static('public'));
 // parse incoming string or array data
@@ -12,17 +14,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-
 // HTML ROUTES TO CREATE
 // GET /notes should return the notes.html file
 
 app.get('/notes', (req, res) => {
-    res.send('/notes.html')
-  })
+    res.sendFile(path.join(__dirname, './public/notes.html'));
+});
+
 
 // GET * should return the index.html file
 
-
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
 
 // API ROUTES TO CREATE
@@ -30,18 +34,20 @@ app.get('/notes', (req, res) => {
 
 
 
+app.get('/api/notes', (req, res) => {
+    res.json(noteLogs.slice(1));
+  });
+
 
 // POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. 
 // You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
 
+// app.post('/api/notes/', (req, res) => {
+//     res.json()
 
+// })
 
-
-
-
-
-
-
-app.listen(3001, () => {
-    console.log(`API server now on port 3001!`);
+ 
+app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}`);
   });
