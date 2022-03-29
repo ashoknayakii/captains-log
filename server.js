@@ -1,4 +1,4 @@
-const noteLogs = require("../db/db.json");
+const noteLogs = require("./db/db.json");
 
 const fs = require("fs");
 const path = require("path");
@@ -32,20 +32,21 @@ app.get("*", (req, res) => {
 });
 
 function addNote(body, noteArray) {
-    const newNote = body;
-    if (!Array.isArray(noteArray))
-    noteArray = [];
+  const newNote = body;
+  if (!Array.isArray(noteArray))
+  noteArray = [];
 
-    if (noteArray.length === 0)
-    noteArray[0]++;
+  if (noteArray.length === 0)
+  noteArray[0]++;
 
-    noteArray.push(newNote);
-    fs.writeFileSync(
-        path.join(_dirname, '../db/db.json'),
-        JSON.stringify(noteArray, null, 2)
-    );
-    return newNote;
+  noteArray.push(newNote);
+  fs.writeFileSync(
+      path.join(_dirname, './db/db.json'),
+      JSON.stringify(noteArray, null, 2)
+  );
+  return newNote;
 }
+
 
 // API ROUTES TO CREATE
 // GET /api/notes should read the db.json file and return all saved notes as JSON.
