@@ -20,7 +20,7 @@ Captain's Log is a simple application to take and save notes.  Express.js was us
 
 
 ### URL of the deployed application (Heroku):
-<https://ashoknayakii.github.io/captains-log>
+<https://quiet-earth-56576.herokuapp.com/>
 
 
 ### URL of the GitHub repository:
